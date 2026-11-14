@@ -17,6 +17,13 @@ $ docker compose up -d
 
 ![Docker compose up](./screenshoots/run-docker-compose.png)
 
+### Verify
+
+```bash
+docker ps
+```
+![Docker ps](./screenshoots/docker-ps.png)
+
 ### stop
 
 ```bash
