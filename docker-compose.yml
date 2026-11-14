@@ -1,0 +1,21 @@
+services:
+  aws-emulator-on-rpi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: aws-emulator-on-rpi
+    user: "${UID}:${GID}"
+    ports:
+      - "9297:9297"
+    environment:
+      - HOME=${HOME}
+    volumes:
+      - "${HOME}/.aws/emulator:${HOME}/.aws/emulator"
+    command: ["-t", "off",  "-a", "off", "-p", "9297"]
+    mem_limit: 2g
+    memswap_limit: 2g
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2g
